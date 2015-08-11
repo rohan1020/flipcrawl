@@ -1,0 +1,32 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+.page-header	app/assets/stylesheets/bootstrap-generators.scss	/^.page-header {$/;"	c
+ActiveSupport	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Flipcrawl
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+Flipcrawl	config/application.rb	/^module Flipcrawl$/;"	m
+HtmlFetch	lib/htmlFetch.rb	/^class HtmlFetch$/;"	c
+Post	app/models/post.rb	/^class Post$/;"	c
+PostTest	test/models/post_test.rb	/^class PostTest < ActiveSupport::TestCase$/;"	c
+PostsController	app/controllers/posts_controller.rb	/^class PostsController < ApplicationController$/;"	c
+PostsControllerTest	test/controllers/posts_controller_test.rb	/^class PostsControllerTest < ActionController::TestCase$/;"	c
+PostsHelper	app/helpers/posts_helper.rb	/^module PostsHelper$/;"	m
+PostsHelperTest	test/helpers/posts_helper_test.rb	/^class PostsHelperTest < ActionView::TestCase$/;"	c
+SubCatFinder	lib/SubCatFinder.rb	/^class SubCatFinder$/;"	c
+body	app/assets/stylesheets/bootstrap-generators.scss	/^body {$/;"	t
+create	app/controllers/posts_controller.rb	/^  def create$/;"	f	class:PostsController
+destroy	app/controllers/posts_controller.rb	/^  def destroy$/;"	f	class:PostsController
+edit	app/controllers/posts_controller.rb	/^  def edit$/;"	f	class:PostsController
+fetch_doc	lib/SubCatFinder.rb	/^  def self.fetch_doc(url)$/;"	F	class:SubCatFinder
+for_url	lib/htmlFetch.rb	/^  def self.for_url(url)$/;"	F	class:HtmlFetch
+index	app/controllers/posts_controller.rb	/^  def index$/;"	f	class:PostsController
+new	app/controllers/posts_controller.rb	/^  def new$/;"	f	class:PostsController
+post_params	app/controllers/posts_controller.rb	/^    def post_params$/;"	f	class:PostsController
+set_post	app/controllers/posts_controller.rb	/^    def set_post$/;"	f	class:PostsController
+show	app/controllers/posts_controller.rb	/^  def show$/;"	f	class:PostsController
+update	app/controllers/posts_controller.rb	/^  def update$/;"	f	class:PostsController
