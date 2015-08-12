@@ -1,0 +1,41 @@
+<div class="page-header">
+  <%= link_to new_category_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Category
+  <% end %>
+  <h1>Listing categories</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Title</th>
+            <th>Sid</th>
+            <th>Numproducts</th>
+            <th>Url</th>
+            <th>Parsed</th>
+            <th>Downloaded</th>
+            <th>Info</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @categories) do |category| %>
+            <td><%= category.title %></td>
+            <td><%= category.sid %></td>
+            <td><%= category.numproducts %></td>
+            <td><%= category.url %></td>
+            <td><%= category.parsed %></td>
+            <td><%= category.downloaded %></td>
+            <td><%= category.info %></td>
+            <td><%= link_to 'Show', category %></td>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

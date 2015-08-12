@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  sid: MyString
+  numproducts: 1
+  url: MyString
+  parsed: false
+  downloaded: false
+  info: 
+
+two:
+  title: MyString
+  sid: MyString
+  numproducts: 1
+  url: MyString
+  parsed: false
+  downloaded: false
+  info: 

@@ -1,0 +1,35 @@
+<div class="page-header">
+  <%= link_to categories_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_category_path(@category), :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show category</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Title:</dt>
+  <dd><%= @category.title %></dd>
+
+  <dt>Sid:</dt>
+  <dd><%= @category.sid %></dd>
+
+  <dt>Numproducts:</dt>
+  <dd><%= @category.numproducts %></dd>
+
+  <dt>Url:</dt>
+  <dd><%= @category.url %></dd>
+
+  <dt>Parsed:</dt>
+  <dd><%= @category.parsed %></dd>
+
+  <dt>Downloaded:</dt>
+  <dd><%= @category.downloaded %></dd>
+
+  <dt>Info:</dt>
+  <dd><%= @category.info %></dd>
+
+</dl>

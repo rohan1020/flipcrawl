@@ -46,7 +46,7 @@ group :development, :test do
   gem "binding_of_caller"
 end
 
-gem 'webmock'
+# gem 'webmock'
 
 group :test do
   gem "rspec-rails"

@@ -1,28 +1,7 @@
+require 'htmlFetch'
+
 class SubCatFinder
 
-  def self.fetch_doc(url)
-    require 'nokogiri'
-    require 'open-uri'
-    
-    require 'digest'
-
-    fname = Digest::SHA256.hexdigest url
-
-    fpath = "tmp/" + fname
-    
-    if File.exist?(fpath)
-      doc = Nokogiri::HTML open(fpath).read
-    else
-      doc = Nokogiri::HTML(open(url).read)
-      f = open(fpath, 'w')
-      f.write(doc)
-      f.close
-    end
-    
-    doc
-
-  end
-  
   def initialize(url)
     
     @url = url
@@ -31,7 +10,7 @@ class SubCatFinder
 
   def getCatList
 
-    doc = SubCatFinder.fetch_doc(@url)
+    doc = HtmlFetch.fetch_doc(@url)
 
     substores = doc.css "#substores"
 
@@ -50,8 +29,27 @@ class SubCatFinder
       out
     }
 
-
     catDetails
+
+  end
+
+  def saveCategories
+    
+    catList = getCatList
+    
+    catList.map{ |c|
+      
+      newCat = Category.new
+
+      newCat.sid = c['sid']
+      newCat.title = c['title']
+      newCat.url = c['href']
+      newCat.numproducts = c['num']
+      newCat.info = c
+
+      puts newCat
+
+    }
 
 
   end
