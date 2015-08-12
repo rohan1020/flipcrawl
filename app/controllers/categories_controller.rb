@@ -1,3 +1,5 @@
+require 'subcatcrawl'
+
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
@@ -5,10 +7,24 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     
-    url = 'http://flipkart.com/books/fiction-non-fiction/pr?sid=bks,fnf'
-    Category.getAndSaveCats(url)
+    # url = 'http://flipkart.com/books/pr?sid=bks'
+    # Category.getAndSaveCats(url)
 
+    # Resque.enqueue(SubCatCrawl, Category.first)
     @categories = Category.all
+  end
+
+  def startWorking
+    
+    cats = Category.where({'parsed' => false})
+    
+    cats.map{ |c|
+      Resque.enqueue(SubCatCrawl,c)
+    }
+
+    @categories = cats
+    render 'index'
+
   end
 
   # GET /categories/1

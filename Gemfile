@@ -58,3 +58,4 @@ end
 gem "bootstrap-generators"
 gem "mongoid"
 gem "bson_ext"
+gem 'resque', :require => "resque/server"

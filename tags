@@ -9,6 +9,13 @@ ActiveSupport	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c
 Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Flipcrawl
 ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
 ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+CatCrawler	lib/catCrawler.rb	/^class CatCrawler$/;"	c
+CategoriesController	app/controllers/categories_controller.rb	/^class CategoriesController < ApplicationController$/;"	c
+CategoriesControllerTest	test/controllers/categories_controller_test.rb	/^class CategoriesControllerTest < ActionController::TestCase$/;"	c
+CategoriesHelper	app/helpers/categories_helper.rb	/^module CategoriesHelper$/;"	m
+CategoriesHelperTest	test/helpers/categories_helper_test.rb	/^class CategoriesHelperTest < ActionView::TestCase$/;"	c
+Category	app/models/category.rb	/^class Category$/;"	c
+CategoryTest	test/models/category_test.rb	/^class CategoryTest < ActiveSupport::TestCase$/;"	c
 Flipcrawl	config/application.rb	/^module Flipcrawl$/;"	m
 HtmlFetch	lib/htmlFetch.rb	/^class HtmlFetch$/;"	c
 Post	app/models/post.rb	/^class Post$/;"	c
@@ -17,16 +24,32 @@ PostsController	app/controllers/posts_controller.rb	/^class PostsController < Ap
 PostsControllerTest	test/controllers/posts_controller_test.rb	/^class PostsControllerTest < ActionController::TestCase$/;"	c
 PostsHelper	app/helpers/posts_helper.rb	/^module PostsHelper$/;"	m
 PostsHelperTest	test/helpers/posts_helper_test.rb	/^class PostsHelperTest < ActionView::TestCase$/;"	c
+SubCatCrawl	app/jobs/subcatcrawl.rb	/^class SubCatCrawl$/;"	c
 SubCatFinder	lib/SubCatFinder.rb	/^class SubCatFinder$/;"	c
 body	app/assets/stylesheets/bootstrap-generators.scss	/^body {$/;"	t
+category_params	app/controllers/categories_controller.rb	/^    def category_params$/;"	f	class:CategoriesController
+create	app/controllers/categories_controller.rb	/^  def create$/;"	f	class:CategoriesController
 create	app/controllers/posts_controller.rb	/^  def create$/;"	f	class:PostsController
+destroy	app/controllers/categories_controller.rb	/^  def destroy$/;"	f	class:CategoriesController
 destroy	app/controllers/posts_controller.rb	/^  def destroy$/;"	f	class:PostsController
+edit	app/controllers/categories_controller.rb	/^  def edit$/;"	f	class:CategoriesController
 edit	app/controllers/posts_controller.rb	/^  def edit$/;"	f	class:PostsController
-fetch_doc	lib/SubCatFinder.rb	/^  def self.fetch_doc(url)$/;"	F	class:SubCatFinder
+fetch_doc	lib/htmlFetch.rb	/^  def self.fetch_doc(url)$/;"	F	class:HtmlFetch
 for_url	lib/htmlFetch.rb	/^  def self.for_url(url)$/;"	F	class:HtmlFetch
+getAndSaveCats	app/models/category.rb	/^  def self.getAndSaveCats(url)$/;"	F	class:Category
+getCatList	lib/SubCatFinder.rb	/^  def getCatList$/;"	f	class:SubCatFinder
+index	app/controllers/categories_controller.rb	/^  def index$/;"	f	class:CategoriesController
 index	app/controllers/posts_controller.rb	/^  def index$/;"	f	class:PostsController
+initialize	lib/SubCatFinder.rb	/^  def initialize(url)$/;"	f	class:SubCatFinder
+new	app/controllers/categories_controller.rb	/^  def new$/;"	f	class:CategoriesController
 new	app/controllers/posts_controller.rb	/^  def new$/;"	f	class:PostsController
+perform	app/jobs/subcatcrawl.rb	/^  def self.perform(c)$/;"	F	class:SubCatCrawl
 post_params	app/controllers/posts_controller.rb	/^    def post_params$/;"	f	class:PostsController
+saveCategories	lib/SubCatFinder.rb	/^  def saveCategories$/;"	f	class:SubCatFinder
+set_category	app/controllers/categories_controller.rb	/^    def set_category$/;"	f	class:CategoriesController
 set_post	app/controllers/posts_controller.rb	/^    def set_post$/;"	f	class:PostsController
+show	app/controllers/categories_controller.rb	/^  def show$/;"	f	class:CategoriesController
 show	app/controllers/posts_controller.rb	/^  def show$/;"	f	class:PostsController
+startCrawling	app/models/category.rb	/^  def self.startCrawling$/;"	F	class:Category
+update	app/controllers/categories_controller.rb	/^  def update$/;"	f	class:CategoriesController
 update	app/controllers/posts_controller.rb	/^  def update$/;"	f	class:PostsController

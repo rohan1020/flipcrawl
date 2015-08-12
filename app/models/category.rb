@@ -1,4 +1,5 @@
 require 'SubCatFinder'
+require 'subcatcrawl'
 
 class Category
   include Mongoid::Document
@@ -19,7 +20,7 @@ class Category
     sCat = SubCatFinder.new(url)
 
     catList = sCat.getCatList
-    
+
     catList.map{ |c|
       
       newCat = Category.new
@@ -30,13 +31,24 @@ class Category
       newCat.numproducts = c['num']
       newCat.info = c
 
+      puts newCat.title
+
       newCat.save
 
-      puts newCat
+      Resque.enqueue(SubCatCrawl, newCat)
+
 
     }
 
   end
+
+
+  def self.startCrawling
+
+    
+
+  end
+
 
 
 end
