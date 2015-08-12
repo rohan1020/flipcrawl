@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to books_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_book_path(@book), :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show book</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Title:</dt>
+  <dd><%= @book.title %></dd>
+
+  <dt>Url:</dt>
+  <dd><%= @book.url %></dd>
+
+  <dt>Sid:</dt>
+  <dd><%= @book.sid %></dd>
+
+  <dt>Info:</dt>
+  <dd><%= @book.info %></dd>
+
+  <dt>Downloaded:</dt>
+  <dd><%= @book.downloaded %></dd>
+
+</dl>
