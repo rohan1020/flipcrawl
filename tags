@@ -9,6 +9,22 @@ ActiveSupport	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c
 Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Flipcrawl
 ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
 ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+Book	app/models/book.rb	/^class Book$/;"	c
+BookCrawlJob	app/jobs/bookcrawljob.rb	/^class BookCrawlJob$/;"	c
+BookInfoCrawl	lib/bookinfocrawl.rb	/^class BookInfoCrawl$/;"	c
+BookSaveDbJob	app/jobs/bookcrawljob.rb	/^class BookSaveDbJob$/;"	c
+BookTest	test/models/book_test.rb	/^class BookTest < ActiveSupport::TestCase$/;"	c
+Bookinfo	app/models/bookinfo.rb	/^class Bookinfo$/;"	c
+BookinfoTest	test/models/bookinfo_test.rb	/^class BookinfoTest < ActiveSupport::TestCase$/;"	c
+BookinfosController	app/controllers/bookinfos_controller.rb	/^class BookinfosController < ApplicationController$/;"	c
+BookinfosControllerTest	test/controllers/bookinfos_controller_test.rb	/^class BookinfosControllerTest < ActionController::TestCase$/;"	c
+BookinfosHelper	app/helpers/bookinfos_helper.rb	/^module BookinfosHelper$/;"	m
+BookinfosHelperTest	test/helpers/bookinfos_helper_test.rb	/^class BookinfosHelperTest < ActionView::TestCase$/;"	c
+BooksController	app/controllers/books_controller.rb	/^class BooksController < ApplicationController$/;"	c
+BooksControllerTest	test/controllers/books_controller_test.rb	/^class BooksControllerTest < ActionController::TestCase$/;"	c
+BooksCrawl	lib/bookscrawl.rb	/^class BooksCrawl$/;"	c
+BooksHelper	app/helpers/books_helper.rb	/^module BooksHelper$/;"	m
+BooksHelperTest	test/helpers/books_helper_test.rb	/^class BooksHelperTest < ActionView::TestCase$/;"	c
 CatCrawler	lib/catCrawler.rb	/^class CatCrawler$/;"	c
 CategoriesController	app/controllers/categories_controller.rb	/^class CategoriesController < ApplicationController$/;"	c
 CategoriesControllerTest	test/controllers/categories_controller_test.rb	/^class CategoriesControllerTest < ActionController::TestCase$/;"	c
@@ -27,29 +43,62 @@ PostsHelperTest	test/helpers/posts_helper_test.rb	/^class PostsHelperTest < Acti
 SubCatCrawl	app/jobs/subcatcrawl.rb	/^class SubCatCrawl$/;"	c
 SubCatFinder	lib/SubCatFinder.rb	/^class SubCatFinder$/;"	c
 body	app/assets/stylesheets/bootstrap-generators.scss	/^body {$/;"	t
+book_params	app/controllers/books_controller.rb	/^    def book_params$/;"	f	class:BooksController
+bookinfo_params	app/controllers/bookinfos_controller.rb	/^    def bookinfo_params$/;"	f	class:BookinfosController
 category_params	app/controllers/categories_controller.rb	/^    def category_params$/;"	f	class:CategoriesController
+create	app/controllers/bookinfos_controller.rb	/^  def create$/;"	f	class:BookinfosController
+create	app/controllers/books_controller.rb	/^  def create$/;"	f	class:BooksController
 create	app/controllers/categories_controller.rb	/^  def create$/;"	f	class:CategoriesController
 create	app/controllers/posts_controller.rb	/^  def create$/;"	f	class:PostsController
+destroy	app/controllers/bookinfos_controller.rb	/^  def destroy$/;"	f	class:BookinfosController
+destroy	app/controllers/books_controller.rb	/^  def destroy$/;"	f	class:BooksController
 destroy	app/controllers/categories_controller.rb	/^  def destroy$/;"	f	class:CategoriesController
 destroy	app/controllers/posts_controller.rb	/^  def destroy$/;"	f	class:PostsController
+edit	app/controllers/bookinfos_controller.rb	/^  def edit$/;"	f	class:BookinfosController
+edit	app/controllers/books_controller.rb	/^  def edit$/;"	f	class:BooksController
 edit	app/controllers/categories_controller.rb	/^  def edit$/;"	f	class:CategoriesController
 edit	app/controllers/posts_controller.rb	/^  def edit$/;"	f	class:PostsController
 fetch_doc	lib/htmlFetch.rb	/^  def self.fetch_doc(url)$/;"	F	class:HtmlFetch
 for_url	lib/htmlFetch.rb	/^  def self.for_url(url)$/;"	F	class:HtmlFetch
+generateUrl	lib/bookscrawl.rb	/^  def generateUrl(startNum)$/;"	f	class:BooksCrawl
+getAllProductList	lib/bookscrawl.rb	/^  def getAllProductList$/;"	f	class:BooksCrawl
+getAndSaveBookInfo	app/models/bookinfo.rb	/^  def self.getAndSaveBookInfo(book)$/;"	F	class:Bookinfo
+getAndSaveBooks	app/models/book.rb	/^  def self.getAndSaveBooks(sid, startNum = 20)$/;"	F	class:Book
 getAndSaveCats	app/models/category.rb	/^  def self.getAndSaveCats(url)$/;"	F	class:Category
+getBookInfo	lib/bookinfocrawl.rb	/^  def getBookInfo$/;"	f	class:BookInfoCrawl
 getCatList	lib/SubCatFinder.rb	/^  def getCatList$/;"	f	class:SubCatFinder
+getPid	app/models/book.rb	/^  def self.getPid(theUrl)$/;"	F	class:Book
+getProductList	lib/bookscrawl.rb	/^  def getProductList(startNum = 1)$/;"	f	class:BooksCrawl
+index	app/controllers/bookinfos_controller.rb	/^  def index$/;"	f	class:BookinfosController
+index	app/controllers/books_controller.rb	/^  def index$/;"	f	class:BooksController
 index	app/controllers/categories_controller.rb	/^  def index$/;"	f	class:CategoriesController
 index	app/controllers/posts_controller.rb	/^  def index$/;"	f	class:PostsController
 initialize	lib/SubCatFinder.rb	/^  def initialize(url)$/;"	f	class:SubCatFinder
+initialize	lib/bookinfocrawl.rb	/^  def initialize(url)$/;"	f	class:BookInfoCrawl
+initialize	lib/bookscrawl.rb	/^  def initialize(sid)$/;"	f	class:BooksCrawl
+new	app/controllers/bookinfos_controller.rb	/^  def new$/;"	f	class:BookinfosController
+new	app/controllers/books_controller.rb	/^  def new$/;"	f	class:BooksController
 new	app/controllers/categories_controller.rb	/^  def new$/;"	f	class:CategoriesController
 new	app/controllers/posts_controller.rb	/^  def new$/;"	f	class:PostsController
+perform	app/jobs/bookcrawljob.rb	/^  def self.perform(pList)$/;"	F	class:BookSaveDbJob
+perform	app/jobs/bookcrawljob.rb	/^  def self.perform(sid)$/;"	F	class:BookCrawlJob
 perform	app/jobs/subcatcrawl.rb	/^  def self.perform(c)$/;"	F	class:SubCatCrawl
 post_params	app/controllers/posts_controller.rb	/^    def post_params$/;"	f	class:PostsController
 saveCategories	lib/SubCatFinder.rb	/^  def saveCategories$/;"	f	class:SubCatFinder
+saveListToDb	app/models/book.rb	/^  def self.saveListToDb(pList)$/;"	F	class:Book
+set_book	app/controllers/books_controller.rb	/^    def set_book$/;"	f	class:BooksController
+set_bookinfo	app/controllers/bookinfos_controller.rb	/^    def set_bookinfo$/;"	f	class:BookinfosController
 set_category	app/controllers/categories_controller.rb	/^    def set_category$/;"	f	class:CategoriesController
 set_post	app/controllers/posts_controller.rb	/^    def set_post$/;"	f	class:PostsController
+show	app/controllers/bookinfos_controller.rb	/^  def show$/;"	f	class:BookinfosController
+show	app/controllers/books_controller.rb	/^  def show$/;"	f	class:BooksController
 show	app/controllers/categories_controller.rb	/^  def show$/;"	f	class:CategoriesController
 show	app/controllers/posts_controller.rb	/^  def show$/;"	f	class:PostsController
 startCrawling	app/models/category.rb	/^  def self.startCrawling$/;"	F	class:Category
+startWork	app/models/book.rb	/^  def self.startWork(cat)$/;"	F	class:Book
+startWorking	app/controllers/categories_controller.rb	/^  def startWorking$/;"	f	class:CategoriesController
+startbookCrawl	app/controllers/categories_controller.rb	/^  def startbookCrawl$/;"	f	class:CategoriesController
+update	app/controllers/bookinfos_controller.rb	/^  def update$/;"	f	class:BookinfosController
+update	app/controllers/books_controller.rb	/^  def update$/;"	f	class:BooksController
 update	app/controllers/categories_controller.rb	/^  def update$/;"	f	class:CategoriesController
 update	app/controllers/posts_controller.rb	/^  def update$/;"	f	class:PostsController

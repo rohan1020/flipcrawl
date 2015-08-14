@@ -1,0 +1,41 @@
+<div class="page-header">
+  <%= link_to bookinfos_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_bookinfo_path(@bookinfo), :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show bookinfo</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Title:</dt>
+  <dd><%= @bookinfo.title %></dd>
+
+  <dt>Pid:</dt>
+  <dd><%= @bookinfo.pid %></dd>
+
+  <dt>Price:</dt>
+  <dd><%= @bookinfo.price %></dd>
+
+  <dt>Categories:</dt>
+  <dd><%= @bookinfo.categories %></dd>
+
+  <dt>Author:</dt>
+  <dd><%= @bookinfo.author %></dd>
+
+  <dt>Metadata:</dt>
+  <dd><%= @bookinfo.metadata %></dd>
+
+  <dt>Url:</dt>
+  <dd><%= @bookinfo.url %></dd>
+
+  <dt>Mainimg:</dt>
+  <dd><%= @bookinfo.mainimg %></dd>
+
+  <dt>Imgs:</dt>
+  <dd><%= @bookinfo.imgs %></dd>
+
+</dl>

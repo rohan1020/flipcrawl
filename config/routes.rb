@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :bookinfos
+
   resources :books
 
   resources :categories
@@ -6,6 +8,8 @@ Rails.application.routes.draw do
   resources :posts
 
   get 'catwork' => 'categories#startWorking'
+  get 'bookwork' => 'categories#startbookCrawl'
+  get 'bookinfowork' => 'books#bookinfocrawl'
 
   mount Resque::Server, :at => "/resque"
 

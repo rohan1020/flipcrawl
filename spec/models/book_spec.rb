@@ -14,15 +14,24 @@ describe Book do
   end
   
   it "gets and saves books from sid" do
-    
-    sid = "bks"
-
-    Book.getAndSaveBooks sid
-
+    #
+    # sid = "bks"
+    #
+    # Book.getAndSaveBooks sid
 
     assert true
 
   end
+  
+  it "enqueues work given a criterea and sid" do
+    
+    sid = 'bks'
+    cat = Category.where({'sid' => sid}).first
+
+    Book.startWork cat
+
+  end
+
 
 
 end

@@ -1,0 +1,47 @@
+<div class="page-header">
+  <%= link_to new_bookinfo_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Bookinfo
+  <% end %>
+  <h1>Listing bookinfos</h1>
+</div>
+
+ <%= will_paginate @bookinfos %>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Title</th>
+            <th>Pid</th>
+            <th>Price</th>
+            <th>Categories</th>
+            <th>Author</th>
+            <th>Metadata</th>
+            <th>Url</th>
+            <th>Mainimg</th>
+            <th>Imgs</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @bookinfos) do |bookinfo| %>
+            <td><%= bookinfo.title %></td>
+            <td><%= bookinfo.pid %></td>
+            <td><%= bookinfo.price %></td>
+            <td><%= bookinfo.categories %></td>
+            <td><%= bookinfo.author %></td>
+            <td><%= bookinfo.metadata %></td>
+            <td><%= bookinfo.url %></td>
+            <!-- <td><%= bookinfo.mainimg %></td> -->
+            <td><%= image_tag bookinfo.mainimg %></td>
+            <td><%= bookinfo.imgs %></td>
+            <td><%= link_to 'Show', bookinfo %></td>
+        <td><%= link_to 'Edit', edit_bookinfo_path(bookinfo) %></td>
+        <td><%= link_to 'Destroy', bookinfo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

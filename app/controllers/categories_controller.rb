@@ -1,4 +1,5 @@
 require 'subcatcrawl'
+require 'bookcrawljob'
 
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
@@ -25,6 +26,20 @@ class CategoriesController < ApplicationController
     @categories = cats
     render 'index'
 
+  end
+
+  def startbookCrawl
+    @categories = Category.where({
+      :numproducts.lte => 1500,
+      :downloaded => false
+    })
+    
+    @categories.map{ |x|
+      
+      Resque.enqueue(BookCrawlJob, x.sid)
+    }
+
+    render 'index'
   end
 
   # GET /categories/1

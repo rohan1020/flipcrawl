@@ -1,10 +1,14 @@
+require 'bookinfocrawljob'
+
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
+
+    require 'will_paginate/array'
+    @books = Book.all.paginate(:page => params[:page], :limit => 50)
   end
 
   # GET /books/1
@@ -35,6 +39,22 @@ class BooksController < ApplicationController
         format.json { render json: @book.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def bookinfocrawl
+    
+    require 'will_paginate/array'
+    @books = Book.all.paginate(:page => params[:page], :limit => 50)
+    
+
+    Book.all.each{|b|
+
+      Resque.enqueue BookInfoCrawlJob, b.pid
+
+    }
+
+    render 'index'
+
   end
 
   # PATCH/PUT /books/1

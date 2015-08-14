@@ -16,7 +16,7 @@ class HtmlFetch
 
     fname = Digest::SHA256.hexdigest url
 
-    fpath = "tmp/" + fname
+    fpath = "/Volumes/BackSSD/Users/flipcrawl/" + fname
     
     if File.exist?(fpath)
       doc = Nokogiri::HTML open(fpath).read
