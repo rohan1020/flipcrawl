@@ -11,10 +11,10 @@ class BookinfosController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { 
-        @bookinfos = Bookinfo.all.limit(10)
+        @bookinfos = Bookinfo.all
         send_data @bookinfos.to_csv }
       format.xls { 
-        @bookinfos = Bookinfo.all.limit(10)
+        @bookinfos = Bookinfo.all
         send_data @bookinfos.to_csv(col_sep: "\t") }
 
     end

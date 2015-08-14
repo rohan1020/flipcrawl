@@ -4,7 +4,7 @@
   <%#   New Bookinfo
   <%# <% end %>
   <%= link_to "Download Excel (xls)", bookinfos_path(format: "xls"), :class =>'btn btn-primary' %>
-  <h1>Listing bookinfos</h1>
+  <h1>Listing <%= Bookinfo.count %> bookinfos</h1>
 </div>
  <%= will_paginate @bookinfos %>
 <div class="table-responsive">
