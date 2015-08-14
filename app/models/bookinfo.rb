@@ -1,6 +1,6 @@
-require 'BookInfoCrawl'
+require 'bookinfocrawl'
 require 'bookinfocrawljob'
-
+require 'csv'
 
 class Bookinfo
   include Mongoid::Document
@@ -17,6 +17,16 @@ class Bookinfo
 
   validates :pid, uniqueness: true
 
+
+  def self.to_csv(options = {})
+    column_names = Bookinfo.first.attributes.keys
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |product|
+        csv << product.attributes.values_at(*column_names)
+      end
+    end
+  end
 
   def self.getAndSaveBookInfo(book)
 

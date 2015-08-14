@@ -6,6 +6,29 @@ class BookinfosController < ApplicationController
   def index
     require 'will_paginate/array'
     @bookinfos = Bookinfo.all.paginate(:page => params[:page], :limit => 15)
+
+    require 'csv'
+    respond_to do |format|
+      format.html
+      format.csv { 
+        @bookinfos = Bookinfo.all.limit(10)
+        send_data @bookinfos.to_csv }
+      format.xls { 
+        @bookinfos = Bookinfo.all.limit(10)
+        send_data @bookinfos.to_csv(col_sep: "\t") }
+
+    end
+
+  end
+
+  def download_csv
+
+    @bookinfos = Bookinfo.all.limit(10)
+
+    require 'csv'
+
+    send_data @bookinfos.to_csv
+
   end
 
   # GET /bookinfos/1

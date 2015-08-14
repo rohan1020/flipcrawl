@@ -1,4 +1,4 @@
-require 'BooksCrawl'
+require 'bookscrawl'
 require 'bookcrawljob'
 
 class Book
