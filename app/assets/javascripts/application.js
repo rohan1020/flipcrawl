@@ -15,3 +15,19 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+//
+
+
+function getBookcount(){
+
+  url = "/bookcount" ;
+
+$.get(url, function(data){
+
+  $('#bcount').html(data);
+
+});
+
+
+
+}

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'bookwork' => 'categories#startbookCrawl'
   get 'bookinfowork' => 'books#bookinfocrawl'
   get 'csv' => 'bookinfos#download_csv'
+  get 'bookcount' => 'bookinfos#bookcount'
 
 
   get 'search' => 'bookinfos#search'

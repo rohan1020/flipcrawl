@@ -4,7 +4,7 @@
   <%#   New Bookinfo
   <%# <% end %>
   <%= link_to "Download Excel (xls)", bookinfos_path(format: "xls"), :class =>'btn btn-primary' %>
-  <h1>Listing <%= Bookinfo.count %> bookinfos</h1>
+  <h1>Listing <span id="bcount"><%= Bookinfo.count %></span> bookinfos</h1>
 </div>
 <form action="/search" id="searchForm" >
   <input name="q" type="text" class="form-control" placeholder="Search for book title or ISBN">
@@ -55,3 +55,15 @@
   </table>
 </div>
  <%= will_paginate @bookinfos %>
+
+ <script>
+
+function getBookcountrec(){
+    // do whatever you like here
+
+    getBookcount();
+
+    setTimeout( getBookcountrec, 2000);
+}
+getBookcountrec();
+ </script>

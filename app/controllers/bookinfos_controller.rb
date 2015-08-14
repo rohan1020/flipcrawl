@@ -21,6 +21,11 @@ class BookinfosController < ApplicationController
 
   end
 
+  def bookcount
+    
+    render :text => Bookinfo.count
+  end
+
   def search
 
     require 'will_paginate/array'
