@@ -15,7 +15,7 @@ class Bookinfo
   field :imgs, type: Array
   field :html, type:String
 
-  validates :pid, uniqueness: true
+  # validates :pid, uniqueness: true
 
 
   def self.to_csv(options = {})
@@ -31,6 +31,10 @@ class Bookinfo
   def self.search(q)
 
     results = Bookinfo.where(:title => /#{q}/i)
+    results += Bookinfo.where('metadata.ISBN-10' => /#{q}/i)
+    results += Bookinfo.where('metadata.ISBN-13' => /#{q}/i)
+    results += Bookinfo.where('author' => /#{q}/i)
+
     results
 
   end

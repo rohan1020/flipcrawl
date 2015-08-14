@@ -7,7 +7,7 @@
   <h1>Listing <%= Bookinfo.count %> bookinfos</h1>
 </div>
 <form action="/search" id="searchForm" >
-  <input name="q" type="text" class="form-control" placeholder="Search">
+  <input name="q" type="text" class="form-control" placeholder="Search for book title or ISBN">
 </form>
 
  <%= will_paginate @bookinfos %>

@@ -4,6 +4,8 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+#searchForm	app/assets/stylesheets/application.css	/^#searchForm{$/;"	i
+.coverpic	app/assets/stylesheets/application.css	/^.coverpic{$/;"	c
 .page-header	app/assets/stylesheets/bootstrap-generators.scss	/^.page-header {$/;"	c
 ActiveSupport	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c
 Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Flipcrawl
@@ -12,6 +14,8 @@ ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/
 Book	app/models/book.rb	/^class Book$/;"	c
 BookCrawlJob	app/jobs/bookcrawljob.rb	/^class BookCrawlJob$/;"	c
 BookInfoCrawl	lib/bookinfocrawl.rb	/^class BookInfoCrawl$/;"	c
+BookInfoCrawlJob	app/jobs/bookinfocrawljob.rb	/^class BookInfoCrawlJob$/;"	c
+BookInfoSaveDbJob	app/jobs/bookinfocrawljob.rb	/^class BookInfoSaveDbJob$/;"	c
 BookSaveDbJob	app/jobs/bookcrawljob.rb	/^class BookSaveDbJob$/;"	c
 BookTest	test/models/book_test.rb	/^class BookTest < ActiveSupport::TestCase$/;"	c
 Bookinfo	app/models/bookinfo.rb	/^class Bookinfo$/;"	c
@@ -45,6 +49,7 @@ SubCatFinder	lib/SubCatFinder.rb	/^class SubCatFinder$/;"	c
 body	app/assets/stylesheets/bootstrap-generators.scss	/^body {$/;"	t
 book_params	app/controllers/books_controller.rb	/^    def book_params$/;"	f	class:BooksController
 bookinfo_params	app/controllers/bookinfos_controller.rb	/^    def bookinfo_params$/;"	f	class:BookinfosController
+bookinfocrawl	app/controllers/books_controller.rb	/^  def bookinfocrawl$/;"	f	class:BooksController
 category_params	app/controllers/categories_controller.rb	/^    def category_params$/;"	f	class:CategoriesController
 create	app/controllers/bookinfos_controller.rb	/^  def create$/;"	f	class:BookinfosController
 create	app/controllers/books_controller.rb	/^  def create$/;"	f	class:BooksController
@@ -54,6 +59,7 @@ destroy	app/controllers/bookinfos_controller.rb	/^  def destroy$/;"	f	class:Book
 destroy	app/controllers/books_controller.rb	/^  def destroy$/;"	f	class:BooksController
 destroy	app/controllers/categories_controller.rb	/^  def destroy$/;"	f	class:CategoriesController
 destroy	app/controllers/posts_controller.rb	/^  def destroy$/;"	f	class:PostsController
+download_csv	app/controllers/bookinfos_controller.rb	/^  def download_csv$/;"	f	class:BookinfosController
 edit	app/controllers/bookinfos_controller.rb	/^  def edit$/;"	f	class:BookinfosController
 edit	app/controllers/books_controller.rb	/^  def edit$/;"	f	class:BooksController
 edit	app/controllers/categories_controller.rb	/^  def edit$/;"	f	class:CategoriesController
@@ -82,10 +88,16 @@ new	app/controllers/categories_controller.rb	/^  def new$/;"	f	class:CategoriesC
 new	app/controllers/posts_controller.rb	/^  def new$/;"	f	class:PostsController
 perform	app/jobs/bookcrawljob.rb	/^  def self.perform(pList)$/;"	F	class:BookSaveDbJob
 perform	app/jobs/bookcrawljob.rb	/^  def self.perform(sid)$/;"	F	class:BookCrawlJob
+perform	app/jobs/bookinfocrawljob.rb	/^  def self.perform(bookdata)$/;"	F	class:BookInfoSaveDbJob
+perform	app/jobs/bookinfocrawljob.rb	/^  def self.perform(pid)$/;"	F	class:BookInfoCrawlJob
 perform	app/jobs/subcatcrawl.rb	/^  def self.perform(c)$/;"	F	class:SubCatCrawl
 post_params	app/controllers/posts_controller.rb	/^    def post_params$/;"	f	class:PostsController
+saveBookDataToDb	app/models/bookinfo.rb	/^  def self.saveBookDataToDb(bookData)$/;"	F	class:Bookinfo
 saveCategories	lib/SubCatFinder.rb	/^  def saveCategories$/;"	f	class:SubCatFinder
 saveListToDb	app/models/book.rb	/^  def self.saveListToDb(pList)$/;"	F	class:Book
+search	app/controllers/bookinfos_controller.rb	/^  def search$/;"	f	class:BookinfosController
+search	app/models/bookinfo.rb	/^  def self.search(q)$/;"	F	class:Bookinfo
+searchForm	app/views/bookinfos/index.html.erb	/^<form action="\/search" id="searchForm" >$/;"	o
 set_book	app/controllers/books_controller.rb	/^    def set_book$/;"	f	class:BooksController
 set_bookinfo	app/controllers/bookinfos_controller.rb	/^    def set_bookinfo$/;"	f	class:BookinfosController
 set_category	app/controllers/categories_controller.rb	/^    def set_category$/;"	f	class:CategoriesController
@@ -98,6 +110,7 @@ startCrawling	app/models/category.rb	/^  def self.startCrawling$/;"	F	class:Cate
 startWork	app/models/book.rb	/^  def self.startWork(cat)$/;"	F	class:Book
 startWorking	app/controllers/categories_controller.rb	/^  def startWorking$/;"	f	class:CategoriesController
 startbookCrawl	app/controllers/categories_controller.rb	/^  def startbookCrawl$/;"	f	class:CategoriesController
+to_csv	app/models/bookinfo.rb	/^  def self.to_csv(options = {})$/;"	F	class:Bookinfo
 update	app/controllers/bookinfos_controller.rb	/^  def update$/;"	f	class:BookinfosController
 update	app/controllers/books_controller.rb	/^  def update$/;"	f	class:BooksController
 update	app/controllers/categories_controller.rb	/^  def update$/;"	f	class:CategoriesController

@@ -12,8 +12,14 @@ class BookInfoCrawlJob
 
     puts "Downloading #{book.title}****"
 
-    Bookinfo.getAndSaveBookInfo book
 
+    t1 = Time.now
+    
+    Bookinfo.getAndSaveBookInfo book
+    
+    tdelta = Time.now - t1
+
+    puts "Took #{tdelta.to_s} seconds.."
   end
 
 end
