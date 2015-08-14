@@ -216,6 +216,8 @@ DEPENDENCIES
   mongoid
   nokogiri (~> 1.6.0)
   rails (= 4.1.7)
+  redis
+  redis-namespace
   resque
   rspec-rails
   sass-rails (~> 4.0.3)

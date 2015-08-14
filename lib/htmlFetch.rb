@@ -22,9 +22,15 @@ class HtmlFetch
       doc = Nokogiri::HTML open(fpath).read
     else
       doc = Nokogiri::HTML(open(url).read)
-      f = open(fpath, 'w')
-      f.write(doc)
-      f.close
+      begin
+        f = open(fpath, 'w')
+        f.write(doc)
+        f.close
+      rescue
+
+      
+      end
+
     end
     
     doc

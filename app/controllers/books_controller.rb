@@ -43,17 +43,24 @@ class BooksController < ApplicationController
 
   def bookinfocrawl
     
-    require 'will_paginate/array'
-    @books = Book.all.paginate(:page => params[:page], :limit => 50)
     
+    books = Book.all
 
-    Book.all.each{|b|
+    books.each{|b|
 
-      Resque.enqueue BookInfoCrawlJob, b.pid
+      if not b.already_saved
+
+        jobb = {}
+        jobb['pid'] = b.pid
+        jobb['url'] = b.url
+
+        Resque.enqueue BookInfoCrawlJob, jobb
+
+      end
 
     }
 
-    render 'index'
+    render :text => "Added to Queue"
 
   end
 

@@ -61,3 +61,5 @@ gem "bson_ext"
 gem 'resque', :require => "resque/server"
 gem "will_paginate"
 gem "awesome_print"
+gem 'redis'
+gem 'redis-namespace'

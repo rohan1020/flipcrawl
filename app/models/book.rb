@@ -3,7 +3,7 @@ require 'bookcrawljob'
 
 class Book
   include Mongoid::Document
-  store_in collection: 'books_15'
+  store_in collection: 'books'
   field :title, type: String
   field :url, type: String
   field :pid, type: String
@@ -81,6 +81,39 @@ class Book
     pList.count
 
 
+  end
+
+  def self.getUnDownloaded
+  
+    out = Book.all.select{ |b|
+      not b.already_saved
+    }
+
+    return out
+
+  end
+
+  def self.already_saved(pidd)
+
+    return $redis.sismember("books", pidd)
+  end
+  def already_saved
+
+    return $redis.sismember("books", pid)
+  end
+
+  def self.mark_saved(pidd)
+
+    $redis.sadd("books", pidd)
+
+    # update(:downloaded => true)
+  end
+
+  def mark_saved
+
+    $redis.sadd("books", pid)
+
+    # update(:downloaded => true)
   end
 
 

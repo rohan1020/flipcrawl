@@ -2,24 +2,26 @@ class BookInfoCrawlJob
 
   @queue = :bookinfocrawl
 
-  def self.perform(pid)
+  def self.perform(book)
     
-    book = Book.where({'pid' => pid}).first
+    pid = book['pid']
+    url = book['url']
     
-    if book.downloaded == true
+    if Book.already_saved pid
+      puts "@@@@@ Already downloaded.. SKIPPING"
       return 0
     end
 
-    puts "Downloading #{book.title}****"
+    # puts "Downloading #{book.title}****"
+    puts pid
 
-
-    t1 = Time.now
+    # t1 = Time.now
     
-    Bookinfo.getAndSaveBookInfo book
+    Bookinfo.getAndSaveBookInfo url
     
-    tdelta = Time.now - t1
+    # tdelta = Time.now - t1
 
-    puts "Took #{tdelta.to_s} seconds.."
+    # puts "Took #{tdelta.to_s} seconds.."
   end
 
 end
@@ -34,13 +36,28 @@ class BookInfoSaveDbJob
     
     # puts "Saving to DB"
 
-    t1 = Time.now
+    # t1 = Time.now
     
-    Bookinfo.saveBookDataToDb(bookdata)
     
-    tdelta = Time.now - t1
+    begin
+      pid = bookdata['pid']
+      # book = Book.where({'pid' => pid}).first
+    rescue
+      puts "FAILED TO FIND THE BOOK ********************"
+    end
+    
+    if Book.already_saved pid
+      puts "@@@@@@ Already SAVED SKipping"
+      return 0
+    end
 
-    puts "Took #{tdelta.to_s} seconds.."
+    puts pid
+    Bookinfo.saveBookDataToDb(bookdata)
+    Book.mark_saved pid
+
+    # tdelta = Time.now - t1
+
+    # puts "Took #{tdelta.to_s} seconds.."
 
   end
 

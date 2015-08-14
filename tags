@@ -46,8 +46,11 @@ PostsHelper	app/helpers/posts_helper.rb	/^module PostsHelper$/;"	m
 PostsHelperTest	test/helpers/posts_helper_test.rb	/^class PostsHelperTest < ActionView::TestCase$/;"	c
 SubCatCrawl	app/jobs/subcatcrawl.rb	/^class SubCatCrawl$/;"	c
 SubCatFinder	lib/SubCatFinder.rb	/^class SubCatFinder$/;"	c
+already_saved	app/models/book.rb	/^  def already_saved$/;"	f	class:Book
+bcount	app/views/bookinfos/index.html.erb	/^  <h1>Listing <span id="bcount"><%= Bookinfo.count %><\/span> bookinfos<\/h1>$/;"	o
 body	app/assets/stylesheets/bootstrap-generators.scss	/^body {$/;"	t
 book_params	app/controllers/books_controller.rb	/^    def book_params$/;"	f	class:BooksController
+bookcount	app/controllers/bookinfos_controller.rb	/^  def bookcount$/;"	f	class:BookinfosController
 bookinfo_params	app/controllers/bookinfos_controller.rb	/^    def bookinfo_params$/;"	f	class:BookinfosController
 bookinfocrawl	app/controllers/books_controller.rb	/^  def bookinfocrawl$/;"	f	class:BooksController
 category_params	app/controllers/categories_controller.rb	/^    def category_params$/;"	f	class:CategoriesController
@@ -72,9 +75,12 @@ getAndSaveBookInfo	app/models/bookinfo.rb	/^  def self.getAndSaveBookInfo(book)$
 getAndSaveBooks	app/models/book.rb	/^  def self.getAndSaveBooks(sid, startNum = 20)$/;"	F	class:Book
 getAndSaveCats	app/models/category.rb	/^  def self.getAndSaveCats(url)$/;"	F	class:Category
 getBookInfo	lib/bookinfocrawl.rb	/^  def getBookInfo$/;"	f	class:BookInfoCrawl
+getBookcount	app/assets/javascripts/application.js	/^function getBookcount(){$/;"	r
+getBookcountrec	app/views/bookinfos/index.html.erb	/^function getBookcountrec(){$/;"	f
 getCatList	lib/SubCatFinder.rb	/^  def getCatList$/;"	f	class:SubCatFinder
 getPid	app/models/book.rb	/^  def self.getPid(theUrl)$/;"	F	class:Book
 getProductList	lib/bookscrawl.rb	/^  def getProductList(startNum = 1)$/;"	f	class:BooksCrawl
+getUnDownloaded	app/models/book.rb	/^  def self.getUnDownloaded$/;"	F	class:Book
 index	app/controllers/bookinfos_controller.rb	/^  def index$/;"	f	class:BookinfosController
 index	app/controllers/books_controller.rb	/^  def index$/;"	f	class:BooksController
 index	app/controllers/categories_controller.rb	/^  def index$/;"	f	class:CategoriesController
@@ -82,6 +88,7 @@ index	app/controllers/posts_controller.rb	/^  def index$/;"	f	class:PostsControl
 initialize	lib/SubCatFinder.rb	/^  def initialize(url)$/;"	f	class:SubCatFinder
 initialize	lib/bookinfocrawl.rb	/^  def initialize(url)$/;"	f	class:BookInfoCrawl
 initialize	lib/bookscrawl.rb	/^  def initialize(sid)$/;"	f	class:BooksCrawl
+mark_saved	app/models/book.rb	/^  def mark_saved$/;"	f	class:Book
 new	app/controllers/bookinfos_controller.rb	/^  def new$/;"	f	class:BookinfosController
 new	app/controllers/books_controller.rb	/^  def new$/;"	f	class:BooksController
 new	app/controllers/categories_controller.rb	/^  def new$/;"	f	class:CategoriesController
@@ -92,6 +99,7 @@ perform	app/jobs/bookinfocrawljob.rb	/^  def self.perform(bookdata)$/;"	F	class:
 perform	app/jobs/bookinfocrawljob.rb	/^  def self.perform(pid)$/;"	F	class:BookInfoCrawlJob
 perform	app/jobs/subcatcrawl.rb	/^  def self.perform(c)$/;"	F	class:SubCatCrawl
 post_params	app/controllers/posts_controller.rb	/^    def post_params$/;"	f	class:PostsController
+removeDuplicates	app/models/bookinfo.rb	/^  def self.removeDuplicates$/;"	F	class:Bookinfo
 saveBookDataToDb	app/models/bookinfo.rb	/^  def self.saveBookDataToDb(bookData)$/;"	F	class:Bookinfo
 saveCategories	lib/SubCatFinder.rb	/^  def saveCategories$/;"	f	class:SubCatFinder
 saveListToDb	app/models/book.rb	/^  def self.saveListToDb(pList)$/;"	F	class:Book
@@ -115,3 +123,4 @@ update	app/controllers/bookinfos_controller.rb	/^  def update$/;"	f	class:Bookin
 update	app/controllers/books_controller.rb	/^  def update$/;"	f	class:BooksController
 update	app/controllers/categories_controller.rb	/^  def update$/;"	f	class:CategoriesController
 update	app/controllers/posts_controller.rb	/^  def update$/;"	f	class:PostsController
+url	app/assets/javascripts/application.js	/^  url = "\/bookcount" ;$/;"	r

@@ -39,9 +39,30 @@ class Bookinfo
 
   end
 
-  def self.getAndSaveBookInfo(book)
+  def self.removeDuplicates
+    
+    pids = Hash.new
+    
+    Bookinfo.all.each{ |b|
+      
+      if pids.has_key? b.pid
+        
+        puts "Duplicate Found: #{b.title}"
+        b.delete
 
-    bc = BookInfoCrawl.new book.url
+      else
+
+        pids[b.pid] = true
+
+      end
+      
+    }
+
+  end
+
+  def self.getAndSaveBookInfo(url)
+
+    bc = BookInfoCrawl.new url
 
     bookData = bc.getBookInfo
 
