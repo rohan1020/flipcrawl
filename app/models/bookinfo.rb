@@ -28,6 +28,13 @@ class Bookinfo
     end
   end
 
+  def self.search(q)
+
+    results = Bookinfo.where(:title => /#{q}/i)
+    results
+
+  end
+
   def self.getAndSaveBookInfo(book)
 
     bc = BookInfoCrawl.new book.url

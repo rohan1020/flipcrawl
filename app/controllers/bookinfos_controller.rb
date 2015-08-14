@@ -21,6 +21,15 @@ class BookinfosController < ApplicationController
 
   end
 
+  def search
+
+    require 'will_paginate/array'
+    @bookinfos = Bookinfo.search(params[:q]).paginate(:page => params[:page], :limit => 10)
+
+    render "index"
+    
+  end
+
   def download_csv
 
     @bookinfos = Bookinfo.all.limit(10)

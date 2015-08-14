@@ -6,19 +6,25 @@
   <%= link_to "Download Excel (xls)", bookinfos_path(format: "xls"), :class =>'btn btn-primary' %>
   <h1>Listing <%= Bookinfo.count %> bookinfos</h1>
 </div>
+<form action="/search" id="searchForm" >
+  <input name="q" type="text" class="form-control" placeholder="Search">
+</form>
+
  <%= will_paginate @bookinfos %>
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
+            <th>Cover</th>
             <th>Title</th>
-            <th>Pid</th>
+            <th>ISBN-10</th>
+            <th>ISBN-13</th>
             <th>Price</th>
             <th>Categories</th>
             <th>Author</th>
             <th>Metadata</th>
+            <th>Pid</th>
             <th>Url</th>
-            <th>Mainimg</th>
             <th>Imgs</th>
             <th></th>
         <th></th>
@@ -28,15 +34,18 @@
 
     <tbody>
       <%= content_tag_for(:tr, @bookinfos) do |bookinfo| %>
+        <td><%= image_tag bookinfo.mainimg , :class => 'coverpic' %></td>
             <td><%= bookinfo.title %></td>
-            <td><%= bookinfo.pid %></td>
+            <td><%= bookinfo.metadata['ISBN-10'] %></td>
+            <td><%= bookinfo.metadata['ISBN-13'] %></td>
             <td><%= bookinfo.price %></td>
             <td><%= bookinfo.categories %></td>
             <td><%= bookinfo.author %></td>
             <td><%= bookinfo.metadata %></td>
+            <td><%= bookinfo.pid %></td>
+
             <td><%= bookinfo.url %></td>
             <!-- <td><%= bookinfo.mainimg %></td> -->
-            <td><%= image_tag bookinfo.mainimg %></td>
             <td><%= bookinfo.imgs %></td>
             <td><%= link_to 'Show', bookinfo %></td>
         <td><%= link_to 'Edit', edit_bookinfo_path(bookinfo) %></td>
@@ -45,3 +54,4 @@
     </tbody>
   </table>
 </div>
+ <%= will_paginate @bookinfos %>

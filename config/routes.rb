@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get 'bookinfowork' => 'books#bookinfocrawl'
   get 'csv' => 'bookinfos#download_csv'
 
+
+  get 'search' => 'bookinfos#search'
+
   mount Resque::Server, :at => "/resque"
 
   # The priority is based upon order of creation: first created -> highest priority.
