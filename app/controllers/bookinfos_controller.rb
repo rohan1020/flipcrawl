@@ -5,7 +5,7 @@ class BookinfosController < ApplicationController
   # GET /bookinfos.json
   def index
     require 'will_paginate/array'
-    @bookinfos = Bookinfo.all.paginate(:page => params[:page], :limit => 15)
+    @bookinfos = Bookinfo.all.limit(100).paginate(:page => params[:page], :limit => 15)
 
     require 'csv'
     respond_to do |format|

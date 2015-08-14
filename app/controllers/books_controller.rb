@@ -44,21 +44,7 @@ class BooksController < ApplicationController
   def bookinfocrawl
     
     
-    books = Book.all
-
-    books.each{|b|
-
-      if not b.already_saved
-
-        jobb = {}
-        jobb['pid'] = b.pid
-        jobb['url'] = b.url
-
-        Resque.enqueue BookInfoCrawlJob, jobb
-
-      end
-
-    }
+    Book.queueBooks
 
     render :text => "Added to Queue"
 

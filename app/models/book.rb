@@ -116,6 +116,25 @@ class Book
     # update(:downloaded => true)
   end
 
+  def self.queueBooks
+
+    books = Book.all
+
+    books.each{|b|
+
+      if not b.already_saved
+
+        jobb = {}
+        jobb['pid'] = b.pid
+        jobb['url'] = b.url
+
+        Resque.enqueue BookInfoCrawlJob, jobb
+
+      end
+
+    }
+  end
 
 
 end
+
