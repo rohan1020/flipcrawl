@@ -5,7 +5,7 @@ development:
     default:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
-      database: flipcrawl_development
+      database: flipgo_21_8
       # Provides the hosts the default session can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
@@ -91,6 +91,18 @@ test:
   sessions:
     default:
       database: flipcrawl_test
+      hosts:
+        - localhost:27017
+      options:
+        read: primary
+        # In the test environment we lower the retries and retry interval to
+        # low amounts for fast failures.
+        max_retries: 1
+        retry_interval: 0
+production:
+  sessions:
+    default:
+      database: flipgo_21_8
       hosts:
         - localhost:27017
       options:

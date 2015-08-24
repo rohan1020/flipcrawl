@@ -14,24 +14,26 @@ class HtmlFetch
     
     require 'digest'
 
-    fname = Digest::SHA256.hexdigest url
+    doc = Nokogiri::HTML(open(url.gsub("com//","com/")).read)
 
-    fpath = "/Volumes/BackSSD/Users/flipcrawl/" + fname
-    
-    if File.exist?(fpath)
-      doc = Nokogiri::HTML open(fpath).read
-    else
-      doc = Nokogiri::HTML(open(url).read)
-      begin
-        f = open(fpath, 'w')
-        f.write(doc)
-        f.close
-      rescue
-
-      
-      end
-
-    end
+    # fname = Digest::SHA256.hexdigest url
+    #
+    # fpath = "/Volumes/BackSSD/Users/flipcrawl/" + fname
+    #
+    # if File.exist?(fpath)
+    #   doc = Nokogiri::HTML open(fpath).read
+    # else
+    #   doc = Nokogiri::HTML(open(url).read)
+    #   begin
+    #     f = open(fpath, 'w')
+    #     f.write(doc)
+    #     f.close
+    #   rescue
+    #
+    #   
+    #   end
+    #
+    # end
     
     doc
 

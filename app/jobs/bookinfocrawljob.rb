@@ -13,15 +13,15 @@ class BookInfoCrawlJob
     end
 
     # puts "Downloading #{book.title}****"
-    puts pid
+    # puts pid
 
-    # t1 = Time.now
+    t1 = Time.now
     
     Bookinfo.getAndSaveBookInfo url
     
-    # tdelta = Time.now - t1
+    tdelta = Time.now - t1
 
-    # puts "Took #{tdelta.to_s} seconds.."
+    puts "Took #{tdelta.to_s} seconds.."
   end
 
 end
@@ -36,7 +36,7 @@ class BookInfoSaveDbJob
     
     # puts "Saving to DB"
 
-    # t1 = Time.now
+    t1 = Time.now
     
     
     begin
@@ -51,13 +51,13 @@ class BookInfoSaveDbJob
       return 0
     end
 
-    puts pid
+    # puts pid
     Bookinfo.saveBookDataToDb(bookdata)
     Book.mark_saved pid
 
-    # tdelta = Time.now - t1
+    tdelta = Time.now - t1
 
-    # puts "Took #{tdelta.to_s} seconds.."
+    puts "Took #{tdelta.to_s} seconds.."
 
   end
 
